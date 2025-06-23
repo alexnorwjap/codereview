@@ -18,17 +18,21 @@ const { services } = useServices()
 .services-list {
   display: flex;
   flex-wrap: wrap;
+  justify-content: space-between;
   gap: 14px 80px;
-  max-height: 166px;
 
   @media (max-width: 768px) {
     max-height: 100%;
+    flex-direction: column;
+    flex-wrap: nowrap;
+    justify-content: flex-start;
   }
 
   &__item {
-    min-width: 222px;
+    width: 222px;
     a {
       display: flex;
+
       gap: 6px;
       align-items: center;
       font-family: var(--madefor-text);

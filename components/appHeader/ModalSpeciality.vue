@@ -23,8 +23,7 @@ useClickOutside(modalRef, closeModal)
   top: calc(100% + 30px);
   left: 50%;
   transform: translate(-50%, 0);
-  max-width: 584px;
-  width: 100%;
+  min-width: clamp(350px, calc(126px + 59.69vw), 584px);
   gap: 30px;
   display: flex;
   flex-direction: column;
@@ -33,6 +32,11 @@ useClickOutside(modalRef, closeModal)
   border-radius: var(--radius-12);
   box-shadow: 0 1px 12px 2px rgba(36, 36, 36, 0.07);
   background: var(--white);
+
+  @media (max-width: 650px) {
+    min-width: auto;
+    width: 100%;
+  }
 
   &__nav {
   }

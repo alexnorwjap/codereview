@@ -8,6 +8,10 @@ const pathLink = {
   text: 'Автоотклики',
 }
 
+const toMain = computed(() => {
+  return route.path !== '/'
+})
+
 const back = computed(() => {
   if (route.path.startsWith('/vacancy-')) {
     return '/vacancies'
@@ -30,17 +34,16 @@ function addAnimation() {
 
 <template>
   <header class="header">
+    <NuxtLink
+      :to="back"
+      class="header__back-button"
+      v-if="route.path.startsWith('/vacancy-')"
+      ><BaseSvgIcon icon="arrow" :width="16" :height="16"
+    /></NuxtLink>
     <div class="header__container">
-      <NuxtLink
-        :to="back"
-        class="header__back-button"
-        v-if="route.path.startsWith('/vacancy-')"
-        ><BaseSvgIcon icon="arrow" :width="16" :height="16"
-      /></NuxtLink>
-      <NuxtLink class="header__logo" to="/">
-        &lt;<span class="font-weight">code</span
-        ><span>review</span>/&gt;</NuxtLink
-      >
+      <NuxtLink class="header__logo" :class="[toMain ? 'notMain' : '']" to="/">
+        &lt;<span class="font-weight">code</span><span>review</span>/&gt;
+      </NuxtLink>
       <button
         type="button"
         class="header__speciality"
@@ -50,18 +53,18 @@ function addAnimation() {
         <BaseHeaderArrowSvg :active="active" />
       </button>
       <button type="button" class="header__login">
-        <AppHeaderLoginSvg /> <span>Войти</span></button
-      >
-      <a
-        v-if="vacancyButton"
-        target="_blank"
-        class="header__custom-link"
-        :href="[vacancyButton ? pathLink.vacancies : '']"
-      >
-        <span>{{ pathLink.text }}</span></a
-      >
+        <AppHeaderLoginSvg /> <span>Войти</span>
+      </button>
+      <AppHeaderModalSpeciality v-if="active" @close="active = false" />
     </div>
-    <AppHeaderModalSpeciality v-if="active" @close="active = false" />
+    <a
+      v-if="vacancyButton"
+      target="_blank"
+      class="header__custom-link"
+      :href="[vacancyButton ? pathLink.vacancies : '']"
+    >
+      <span>{{ pathLink.text }}</span>
+    </a>
   </header>
 </template>
 
@@ -70,6 +73,10 @@ function addAnimation() {
   position: fixed;
 
   width: 100%;
+  display: flex;
+  justify-content: center;
+
+  gap: 10px;
 
   z-index: 99;
   margin-top: 20px;
@@ -79,6 +86,8 @@ function addAnimation() {
   }
 
   &__container {
+    flex: 1 1 auto;
+    margin: 0;
     position: relative;
     max-width: 482px;
     padding: 17px 20px;
@@ -99,11 +108,8 @@ function addAnimation() {
   }
 
   &__back-button {
-    position: absolute;
     display: flex;
     content: '';
-    top: 0;
-    left: -74px;
     padding: 20px 24px;
     border-radius: var(--radius-18);
     backdrop-filter: blur(8px);
@@ -115,7 +121,6 @@ function addAnimation() {
   }
 
   &__custom-link {
-    position: absolute;
     right: -158px;
     padding: 18px 20px;
     border-radius: var(--radius-18);
@@ -149,6 +154,12 @@ function addAnimation() {
       color: var(--white);
       z-index: 3;
     }
+
+    @media (max-width: 767px) {
+      position: fixed;
+      bottom: 15px;
+      right: 15px;
+    }
   }
 
   &__logo {
@@ -163,6 +174,12 @@ function addAnimation() {
     background-clip: text;
     cursor: pointer;
 
+    &.notMain {
+      @media (min-width: 479px) {
+        color: var(--neutral-600);
+        background: none;
+      }
+    }
     .font-weight {
       font-weight: normal;
     }
