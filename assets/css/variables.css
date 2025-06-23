@@ -1,0 +1,60 @@
+:root {
+  --madefor-display: 'Wix Madefor Display', sans-serif;
+  --madefor-text: 'Wix Madefor Text', sans-serif;
+  --ibm-plex: 'IBM Plex Sans', sans-serif;
+  --medium: 500;
+  --semi-bold: 600;
+
+  --primary-100: #ecf0ff;
+  --primary-500: #0560c9;
+
+  --tertiary-400: #976e0b;
+
+  --neutral-100: #f6f6f6;
+  --neutral-150: #f4f4f4;
+  --neutral-200: #f0f1f1;
+  --neutral-300: #d4d5d7;
+  --neutral-500: #86888e;
+  --neutral-600: #636469;
+  --neutral-700: #414246;
+  --neutral-800: #232325;
+  --white: #fff;
+  --black: #000;
+
+  --radius-18: 18px;
+  --radius-14: 14px;
+  --radius-12: 12px;
+  --radius-8: 8px;
+  --radius-6: 6px;
+
+  --gradient-secondary: linear-gradient(
+    90deg,
+    rgba(244, 184, 184, 0.4) 0%,
+    rgba(234, 214, 181, 0.4) 22.6%,
+    rgba(227, 234, 179, 0.4) 44.71%,
+    rgba(197, 241, 208, 0.4) 100%
+  );
+  --gradient-primary: linear-gradient(
+    42deg,
+    #2093fe 0%,
+    rgba(194, 23, 254, 0.9) 110%
+  );
+  --gradient-tertiary: linear-gradient(
+    90deg,
+    #e25377 0%,
+    #eeb902 49.04%,
+    #62b4ff 100%
+  );
+  --gradient-button: linear-gradient(
+    76deg,
+    rgba(244, 184, 184, 0.4) 0%,
+    rgba(227, 179, 234, 0.4) 44.71%,
+    rgba(197, 201, 241, 0.4) 100%
+  );
+  --gradient-button-hover: linear-gradient(
+    76deg,
+    rgba(244, 184, 184, 0.6) 0%,
+    rgba(227, 179, 234, 0.6) 44.71%,
+    rgba(197, 201, 241, 0.6) 100%
+  );
+}

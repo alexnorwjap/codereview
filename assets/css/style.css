@@ -1,0 +1,33 @@
+html {
+  scroll-behavior: smooth;
+}
+body {
+  /*overflow: hidden;*/
+  /*scrollbar-gutter: stable;*/
+  font-family: var(--madefor-text);
+}
+
+[class*='__container'] {
+  margin: 0 auto;
+  padding: 0 15px;
+  max-width: 1050px;
+}
+
+#__nuxt {
+  min-height: 100vh;
+  width: 100vw;
+  position: relative;
+  overflow: clip;
+  display: flex;
+  flex-direction: column;
+
+  gap: 100px;
+
+  @media (max-width: 479px) {
+    gap: 0;
+  }
+}
+
+.page {
+  flex: 1 1 auto;
+}
