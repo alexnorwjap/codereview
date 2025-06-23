@@ -3,6 +3,7 @@
 <template>
   <div>
     <svg
+      class="stars"
       viewBox="0 0 1400 645"
       fill="none"
       xmlns="http://www.w3.org/2000/svg"
@@ -50,7 +51,7 @@
             result="shape"
           />
           <feGaussianBlur
-            stdDeviation="150"
+            stdDeviation="100"
             result="effect1_foregroundBlur_336_442"
           />
         </filter>
@@ -71,7 +72,7 @@
             result="shape"
           />
           <feGaussianBlur
-            stdDeviation="150"
+            stdDeviation="100"
             result="effect1_foregroundBlur_336_442"
           />
         </filter>
@@ -92,7 +93,7 @@
             result="shape"
           />
           <feGaussianBlur
-            stdDeviation="150"
+            stdDeviation="100"
             result="effect1_foregroundBlur_336_442"
           />
         </filter>
@@ -113,7 +114,7 @@
             result="shape"
           />
           <feGaussianBlur
-            stdDeviation="150"
+            stdDeviation="100"
             result="effect1_foregroundBlur_336_442"
           />
         </filter>
@@ -122,4 +123,8 @@
   </div>
 </template>
 
-<style scoped lang="scss"></style>
+<style scoped lang="scss">
+.stars {
+  overflow: visible;
+}
+</style>
